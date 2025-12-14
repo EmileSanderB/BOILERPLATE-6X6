@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOILERPLATE 6X6 | Hollow Script | v11.7 Strict Unique</title>
+  <style>
+      :root {
+          --bg-color: #050000;
+          --text-color: #d9c9c9;
+          --accent-color: #ff2a2a; /* System Alert Red */
+          --success-color: #28a745; /* Access Granted Green */
+          --secondary-color: #1a0505;
+          --border-color: #3d0d0d;
+          --font-main: 'Courier New', Courier, monospace;
+      }
+
+      body {
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          font-family: var(--font-main);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          margin: 0;
+          padding: 20px;
+      }
+
+      .container {
+          width: 100%;
+          max-width: 800px;
+          background-color: var(--secondary-color);
+          padding: 40px;
+          border: 1px solid var(--border-color);
+          box-shadow: 
+              0 0 60px rgba(0, 0, 0, 1),          
+              0 0 15px rgba(255, 42, 42, 0.6),    
+              0 0 40px rgba(255, 42, 42, 0.3),    
+              inset 0 0 30px rgba(0, 0, 0, 0.8);  
+          border-radius: 8px;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.5s ease;
+      }
+
+      .container::before {
+          content: " ";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background: 
+              linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(20, 0, 0, 0.25) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(255, 0, 0, 0.02), rgba(255, 0, 0, 0.06));
+          z-index: 2;
+          background-size: 100% 2px, 3px 100%;
+          pointer-events: none;
+          opacity: 0.15;
+      }
+
+      @keyframes strongPulse {
+          0% { opacity: 1; text-shadow: 0 0 15px rgba(255, 42, 42, 0.8); }
+          50% { opacity: 0.4; text-shadow: none; }
+          100% { opacity: 1; text-shadow: 0 0 15px rgba(255, 42, 42, 0.8); }
+      }
+
+      h1 {
+          color: var(--accent-color);
+          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+          margin-bottom: 5px;
+          font-size: 2.5rem;
+          animation: strongPulse 3s infinite ease-in-out;
+      }
+
+      .subtitle {
+          text-align: center;
+          color: #9e8b8b;
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          margin-bottom: 30px;
+          border-bottom: 1px solid var(--border-color);
+          padding-bottom: 20px;
+      }
+
+      .input-group {
+          margin-bottom: 25px;
+          position: relative;
+          z-index: 3; 
+      }
+
+      label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: bold;
+          color: var(--accent-color);
+          font-size: 0.9rem;
+          letter-spacing: 1px;
+      }
+
+      input[type="text"], textarea {
+          width: 100%;
+          background-color: #0f0202;
+          color: var(--text-color);
+          border: 1px solid var(--border-color);
+          padding: 15px;
+          font-family: var(--font-main);
+          font-size: 1rem;
+          border-radius: 4px;
+          resize: vertical; 
+          box-sizing: border-box;
+          transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      input:focus, textarea:focus {
+          outline: none;
+          border-color: var(--accent-color);
+          box-shadow: 0 0 15px rgba(255, 42, 42, 0.3);
+      }
+
+      .button-row {
+          display: flex;
+          gap: 15px;
+          margin-bottom: 25px;
+          position: relative;
+          z-index: 3;
+      }
+
+      button {
+          flex: 1;
+          padding: 15px;
+          background-color: var(--secondary-color);
+          color: var(--accent-color);
+          border: 1px solid var(--accent-color);
+          font-family: var(--font-main);
+          font-weight: bold;
+          font-size: 1rem;
+          cursor: pointer;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          transition: all 0.3s ease;
+      }
+
+      button:hover {
+          background-color: var(--accent-color);
+          color: var(--bg-color);
+          box-shadow: 0 0 20px var(--accent-color);
+      }
+
+      .btn-logout {
+          background-color: var(--secondary-color);
+          color: var(--accent-color);
+          border: 1px solid var(--accent-color);
+          font-family: var(--font-main);
+          font-weight: bold;
+          cursor: pointer;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          transition: all 0.3s ease;
+          padding: 10px 30px;
+          font-size: 0.8rem;
+          text-decoration: underline;
+          display: inline-block;
+      }
+      
+      .btn-logout:hover {
+          background-color: var(--accent-color);
+          color: var(--bg-color);
+          box-shadow: 0 0 15px var(--accent-color);
+          text-decoration: none;
+      }
+
+      .hidden { display: none !important; }
+      .fade-in { animation: fadeIn 1s ease-in; }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+      #login-message-area {
+          min-height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          margin-top: 20px;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+      }
+
+      .access-granted {
+          font-size: 1.5rem;
+          color: var(--success-color);
+          text-shadow: 0 0 10px var(--success-color);
+          border: 1px solid var(--success-color);
+          padding: 10px 20px;
+          background: rgba(40, 167, 69, 0.1);
+      }
+
+      @keyframes appearFlash {
+          0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 20px var(--accent-color); }
+          50% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 10px var(--accent-color); }
+          100% { opacity: 1; transform: scale(1); text-shadow: 0 0 5px var(--accent-color); }
+      }
+
+      .access-denied {
+          color: var(--accent-color);
+          font-size: 1.2rem;
+          animation: appearFlash 0.2s ease-out forwards;
+      }
+
+      #auth-input-field {
+          text-align: center;
+          letter-spacing: 5px;
+          font-size: 1.2rem;
+      }
+
+  </style>
+</head>
+<body>
+ 
+<div class="container">
+ 
+  <h1>BOILERPLATE 6X6</h1>
+  <div class="subtitle">Hollow Script | Encoder v11.7</div>
+
+  <div id="screen-auth">
+      <div class="input-group" style="margin-top: 40px;">
+          <label for="auth-input-field" style="text-align: center;">AUTHENTICATION</label>
+          <input type="text" id="auth-input-field" placeholder="Passcode" autocomplete="off">
+      </div>
+
+      <div class="button-row">
+          <button onclick="attemptLogin()">ACCESS SYSTEM</button>
+      </div>
+
+      <div id="login-message-area"></div>
+  </div>
+
+  <div id="screen-main" class="hidden">
+      <div class="input-group">
+          <label for="input-text">INPUT DATA</label>
+          <textarea id="input-text" rows="5" placeholder="Text"></textarea>
+      </div>
+    
+      <div class="button-row">
+          <button onclick="codeerChromaLexicon()">ENCRYPT</button>
+          <button onclick="decodeerChromaLexicon()">DECRYPT</button>
+      </div>
+    
+      <div class="input-group">
+          <label for="output-text">OUTPUT DATA</label>
+          <textarea id="output-text" rows="5" readonly placeholder="Result"></textarea>
+      </div>
+      
+      <div style="text-align: center; margin-top: 25px;">
+          <button onclick="location.reload()" class="btn-logout">LOCK SYSTEM / LOGOUT</button>
+      </div>
+  </div>
+
+</div>
+ 
+<script>
+ 
+  // --- AUTHENTICATIE LOGICA ---
+  const AUTH_KEY = "CHROMA";
+
+  document.getElementById("auth-input-field").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") attemptLogin();
+  });
+
+  function attemptLogin() {
+      const inputField = document.getElementById('auth-input-field');
+      const msgArea = document.getElementById('login-message-area');
+      
+      msgArea.innerHTML = "";
+      msgArea.className = "";
+
+      if (inputField.value === AUTH_KEY) {
+          msgArea.innerHTML = "<span class='access-granted'>[ ACCESS GRANTED ]</span>";
+          setTimeout(() => {
+              document.getElementById('screen-auth').classList.add('hidden');
+              const mainScreen = document.getElementById('screen-main');
+              mainScreen.classList.remove('hidden');
+              mainScreen.classList.add('fade-in');
+          }, 1500);
+      } else {
+          setTimeout(() => {
+              msgArea.innerHTML = "<span class='access-denied'>[ ACCESS DENIED ]<br><span style='font-size:0.7em'>INVALID CREDENTIALS</span></span>";
+              inputField.style.borderColor = "#ff0000";
+              inputField.value = "";
+              setTimeout(() => inputField.style.borderColor = "var(--border-color)", 1000);
+          }, 100);
+      }
+  }
+
+  // --- CORE CRYPTO LOGICA ---
+
+  const polybiusSquare = [
+      ['A', 'B', 'C', 'D', 'E', 'F'],
+      ['G', 'H', 'I', 'J', 'K', 'L'],
+      ['M', 'N', 'O', 'P', 'Q', 'R'],
+      ['S', 'T', 'U', 'V', 'W', 'X'], 
+      ['Y', 'Z', '0', '1', '2', '3'], 
+      ['4', '5', '6', '7', '8', '9']
+    ];
+ 
+  // --- AANGEPASTE UNIEKE WOORDENLIJSTEN ---
+  // Er zijn geen dubbele woorden meer tussen de categorieën.
+  
+  const specialWords = {
+      // SPATIES: Neutrale structurele woorden
+      space: [
+          "de", "het", "een", "in", "op", "bij", "van", "met", "naar", "door", "om", "uit", "over", "tot", 
+          "als", "is", "was", "zijn", "heb", "had", "ben", "kan", "wil", "moet", 
+          "er", "hier", "daar", "waar", "toen", "nog", "al", "net", "geen", "iets", "niets", 
+          "alles", "iemand", "niemand", "men", "je", "ze", "we", "jij", "hij", "zij", "wij", 
+          "jullie", "hun", "ons", "uw", "mijn", "haar"
+      ],
+
+      // KOMMA'S: Verbindingswoorden
+      comma: [
+          "en", "of", "maar", "want", "omdat", "zodat", "hoewel", "mits", "tenzij", "echter", "immers", 
+          "namelijk", "terwijl", "sinds", "aangezien", "indien", "nadat", "voordat", "oftewel", 
+          "trouwens", "verder", "daarnaast", "bovendien", "dus", "daarom", "vandaar", "toch", "ook"
+      ],
+
+      // VRAAGTEKENS: Vraagwoorden
+      question: [
+          "wie", "wat", "waarom", "wanneer", "hoe", "welk", "welke", "waarmee", 
+          "waardoor", "waartoe", "hoever", "hoeveel", "mag", "kun", "zouden", "misschien", 
+          "mogelijk", "wellicht", "soms"
+      ],
+
+      // UITROEPTEKENS: Krachttermen
+      exclamation: [
+          "ja", "nee", "zeker", "echt", "vast", "juist", "precies", "absoluut", "snel", 
+          "direct", "meteen", "nu", "wel", "kijk", "hoor", "pas", "let", "stop", "halt", "hoera", 
+          "helaas", "jammer", "super", "top", "goed", "fout", "mis", "raak"
+      ],
+
+      // PUNTEN: Afsluiters
+      period: [
+          "klaar", "af", "slot", "einde", "gedaan", "geweest", "voorbij", 
+          "later", "straks", "gisteren", "morgen", "vandaag", "thuis", "weg", "kwijt", 
+          "bezig", "mooi", "fijn", "stil", "dicht", "open", "compleet", "totaal", "dan", "zo"
+      ]
+  };
+
+  function getAllSpecialWords() {
+      return [].concat(...Object.values(specialWords));
+  }
+
+  const dictionary = {
+      0: { 
+          0: ["act", "bak", "cel", "dag", "bad", "bel", "bal", "bar", "arm", "bed", "bus", "bij", "bek", "alp", "ace", "bol"], 
+          1: ["code", "data", "camp", "boos", "boom", "deel", "deur", "dans", "club", "chef", "cafe", "cool", "diep", "duur"], 
+          2: ["bonus", "basis", "breed", "beurs", "bloem", "breuk", "brand", "beurt", "chips", "drama", "bosch", "boren"], 
+          3: ["actief", "beleid", "camera", "credit", "balans", "bureau", "douane", "dating", "dieren", "beheer", "banen"], 
+          4: ["analyse", "context", "contact", "brutaal", "betaald", "bedrijf", "collega", "concept", "bestand", "bloemen"], 
+          5: ["beslissing", "belangrijk", "competitie", "definitief", "bestelling", "consultant", "belasting"] 
+        },
+      1: { 
+          0: ["hef", "gek", "gok", "gas", "hal", "hek", "hol", "hut", "fag", "fee", "eis", "fok", "gom"], 
+          1: ["echt", "feit", "gids", "fase", "geen", "hard", "fijn", "film", "goud", "fout", "held", "haat", "haas", "golf"], 
+          2: ["geluk", "groep", "gevel", "grond", "groot", "hemel", "hobby", "hotel", "haven", "fiets", "fonds"], 
+          3: ["effect", "factor", "gebied", "huidig", "fataal", "export", "geluid", "handel", "garage", "gevoel"], 
+          4: ["gebruik", "energie", "grafiek", "herstel", "formule", "gesprek", "fabriek", "gewicht", "gehalte", "garantie"], 
+          5: ["faciliteit", "fundamenteel", "gevaarlijk", "hypothese", "evaluatie", "generatie", "exporteur"] 
+        },
+      2: { 
+          0: ["jas", "kar", "kat", "kop", "lip", "lij", "lam", "map", "man", "mis", "mat", "kin", "koe", "kip", "lid"], 
+          1: ["idee", "item", "jaar", "kern", "laag", "maat", "klas", "jury", "kast", "loon", "muur", "kind", "koel", "maak"], 
+          2: ["input", "laser", "media", "ivory", "kleur", "kaart", "kroon", "macht", "model", "motor", "markt", "leven"], 
+          3: ["impact", "kapper", "koffer", "leider", "mantel", "metaal", "minder", "klasse", "kamers", "kosten"], 
+          4: ["manager", "machine", "kantoor", "kapitaal", "melding", "metalen", "invloed", "limiets", "kleuren"], 
+          5: ["initiatief", "integratie", "juridisch", "journalist", "management", "investering", "jaarlijks"] 
+        },
+      3: { 
+          0: ["net", "nop", "nat", "nek", "nul", "pan", "pot", "pen", "pil", "put", "pop", "puf", "oor"], 
+          1: ["nota", "open", "orde", "plan", "post", "punt", "quiz", "norm", "plek", "pers", "pand", "palm", "paal", "park"], 
+          2: ["omzet", "order", "poort", "optie", "opzet", "plein", "prijs", "proef", "quota", "paniek", "party", "proza"], 
+          3: ["niveau", "proces", "online", "nieuws", "nummer", "oranje", "pagina", "panter", "pakket", "premie"], 
+          4: ["netwerk", "oorzaak", "overleg", "ontwerp", "profiel", "program", "publiek", "product", "nadelig", "normaal", "netheid", "oorlogs", "opnieuw", "periode"], 
+          5: ["noodzaak", "onderzoek", "oplossing", "organisch", "procedure", "productie", "personeel"] 
+        },
+      4: { 
+          0: ["ren", "rit", "rol", "rug", "sap", "set", "sok", "som", "tak", "top", "uur", "rat", "rok", "run"], 
+          1: ["ruim", "scan", "taak", "team", "test", "tijd", "unit", "stad", "stem", "slot", "rest", "roze", "ster", "stuk", "spot", "stop", "step"], 
+          2: ["regio", "route", "radar", "rente", "robot", "ruimte", "saldo", "scene", "schat", "spoor", "sport", "storm"], 
+          3: ["schaal", "sector", "status", "totaal", "social", "school", "scherm", "speler", "studie", "schets"], 
+          4: ["rapport", "respect", "realist", "subtiel", "symbool", "systeem", "reactor", "sociaal", "sanctie"], 
+          5: ["resultaat", "strategie", "toekomst", "uitkomst", "rapportage", "technologie", "structuur"] 
+        },
+      5: { 
+          0: ["vak", "val", "vet", "vis", "vee", "web", "wet", "wol", "wit", "zak", "zee", "zon", "zes", "weg", "wol", "wis"], 
+          1: ["vaak", "vast", "veld", "vorm", "werk", "zaak", "zin", "week", "zorg", "voet", "wiel", "zone", "waar", "weer", "wind"], 
+          2: ["visie", "vraag", "winst", "zeker", "zwaar", "video", "vloer", "vogel", "vraag", "water", "wagen", "zomer"], 
+          3: ["waarde", "wereld", "winter", "zomer", "wissel", "veilig", "verder", "vinger", "westen", "wortel"], 
+          4: ["verband", "verkeer", "verzoek", "welzijn", "voetbal", "werking", "woning", "zondag"], 
+          5: ["variabele", "verwerking", "voortgang", "werkgever", "zekerheid", "zichtbaar", "vrijheid", "voordeel"] 
+        }
+  };
+ 
+  // --- HELPERS ---
+  
+  function sanitizeDictionary() {
+      const allSpecials = getAllSpecialWords();
+      for (let r = 0; r < 6; r++) {
+          for (let c = 0; c < 6; c++) {
+              if (dictionary[r][c]) {
+                  dictionary[r][c] = dictionary[r][c].filter(word => !allSpecials.includes(word));
+              }
+          }
+      }
+      console.log("Dictionary sanitized: special words reserved.");
+  }
+
+  function getRowIndexForChar(char) {
+      if (/[A-D]/.test(char)) return 0;
+      if (/[E-H]/.test(char)) return 1;
+      if (/[I-M]/.test(char)) return 2;
+      if (/[N-Q]/.test(char)) return 3;
+      if (/[R-U]/.test(char)) return 4;
+      if (/[V-Z]/.test(char)) return 5;
+      return -1;
+  }
+ 
+  function getStartCharsForRow(rowIndex) {
+      if (rowIndex === 0) return "ABCD";
+      if (rowIndex === 1) return "EFGH";
+      if (rowIndex === 2) return "IJKLM";
+      if (rowIndex === 3) return "NOPQ";
+      if (rowIndex === 4) return "RSTU";
+      if (rowIndex === 5) return "VWXYZ";
+      return "A";
+  }
+ 
+  function getColIndexForLength(len) {
+      if (len === 3) return 0;
+      if (len === 4) return 1;
+      if (len === 5) return 2;
+      if (len === 6) return 3;
+      if (len === 7) return 4;
+      if (len >= 8) return 5;
+      return -1;
+  }
+ 
+  function getLengthForCol(colIndex) {
+      if (colIndex === 0) return 3;
+      if (colIndex === 1) return 4;
+      if (colIndex === 2) return 5;
+      if (colIndex === 3) return 6;
+      if (colIndex === 4) return 7;
+      if (colIndex === 5) return 9; 
+      return 4;
+  }
+ 
+  function getCoords(char) {
+      char = char.toUpperCase();
+      for (let r = 0; r < 6; r++) {
+          for (let c = 0; c < 6; c++) {
+              if (polybiusSquare[r][c] === char) return { r, c };
+          }
+      }
+      return null;
+  }
+ 
+  function getRandomElement(arr) {
+      if (!arr || arr.length === 0) return null;
+      return arr[Math.floor(Math.random() * arr.length)];
+  }
+ 
+  function capitalize(word) {
+      if (!word) return "";
+      return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+ 
+  function generateFailSafeWord(rowIndex, colIndex) {
+      const allowedStartChars = getStartCharsForRow(rowIndex);
+      const targetLength = getLengthForCol(colIndex);
+      const startChar = allowedStartChars.charAt(Math.floor(Math.random() * allowedStartChars.length));
+      const allSpecials = getAllSpecialWords();
+      
+      let word = "";
+      let safetyCounter = 0;
+      do {
+          word = startChar;
+          const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          for (let i = 1; i < targetLength; i++) {
+              word += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+          }
+          word = word.toLowerCase();
+          safetyCounter++;
+      } while (allSpecials.includes(word) && safetyCounter < 10);
+      
+      return word;
+  }
+ 
+  // --- ENCODING ---
+  function codeerChromaLexicon() {
+      const inputRaw = document.getElementById('input-text').value;
+      // VERBETERING: Vervang Enters door spaties, en behoud leestekens
+      const cleanInput = inputRaw.replace(/[\r\n]+/g, ' ').replace(/[^a-zA-Z0-9 .,!?]/g, '').toUpperCase();
+      let sentenceBuffer = [];
+ 
+      for (let i = 0; i < cleanInput.length; i++) {
+          const char = cleanInput[i];
+          
+          if (char === ' ') {
+              sentenceBuffer.push(getRandomElement(specialWords.space));
+              continue; 
+          }
+          if (char === ',') {
+              sentenceBuffer.push(getRandomElement(specialWords.comma));
+              continue; 
+          }
+          if (char === '?') {
+              sentenceBuffer.push(getRandomElement(specialWords.question));
+              continue; 
+          }
+          if (char === '!') {
+              sentenceBuffer.push(getRandomElement(specialWords.exclamation));
+              continue; 
+          }
+          if (char === '.') {
+              sentenceBuffer.push(getRandomElement(specialWords.period));
+              continue; 
+          }
+
+          const coords = getCoords(char);
+ 
+          if (coords) {
+              const targetLen = getLengthForCol(coords.c);
+
+              for(let k=0; k<2; k++) {
+                  const possibleWords = dictionary[coords.r][coords.c];
+                  let codeWord = null;
+ 
+                  if (possibleWords && possibleWords.length > 0) {
+                      let candidate = getRandomElement(possibleWords);
+                      if (coords.c === 5) {
+                          if (candidate.length >= 8) codeWord = candidate;
+                      } else {
+                          if (candidate.length === targetLen) codeWord = candidate;
+                      }
+                  }
+ 
+                  if (!codeWord) {
+                      codeWord = generateFailSafeWord(coords.r, coords.c);
+                  } else {
+                      if (k === 1 && possibleWords.length > 1 && sentenceBuffer.length > 0) {
+                          let attempts = 0;
+                          while (codeWord === sentenceBuffer[sentenceBuffer.length - 1] && attempts < 10) {
+                              let nextCand = getRandomElement(possibleWords);
+                              let isValid = (coords.c === 5) ? nextCand.length >= 8 : nextCand.length === targetLen;
+                              if (isValid) codeWord = nextCand;
+                              attempts++;
+                          }
+                      }
+                  }
+                  sentenceBuffer.push(codeWord);
+              }
+          }
+      }
+ 
+      let finalString = sentenceBuffer.join(" ");
+      let outputText = capitalize(finalString);
+      
+      const outputElem = document.getElementById('output-text');
+      outputElem.value = outputText;
+  }
+ 
+  // --- DECODING ---
+  function decodeerChromaLexicon() {
+      const inputRaw = document.getElementById('input-text').value;
+      const rawWords = inputRaw.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase().split(/\s+/);
+      
+      let validWords = [];
+        
+      rawWords.forEach(word => {
+          if (specialWords.space.includes(word)) {
+              validWords.push({ type: 'space' }); return;
+          }
+          if (specialWords.comma.includes(word)) {
+              validWords.push({ type: 'comma' }); return;
+          }
+          if (specialWords.question.includes(word)) {
+              validWords.push({ type: 'question' }); return;
+          }
+          if (specialWords.exclamation.includes(word)) {
+              validWords.push({ type: 'exclamation' }); return;
+          }
+          if (specialWords.period.includes(word)) {
+              validWords.push({ type: 'period' }); return;
+          }
+
+          if (word.length < 3) return; 
+ 
+          const firstChar = word.charAt(0).toUpperCase();
+          const len = word.length;
+          const r = getRowIndexForChar(firstChar);
+          const c = getColIndexForLength(len);
+ 
+          if (r !== -1 && c !== -1) {
+              validWords.push({ type: 'char', char: polybiusSquare[r][c] });
+          }
+      });
+ 
+      let decodedMessage = "";
+      let capitalizeNext = true; 
+
+      let i = 0;
+      while (i < validWords.length) { 
+          
+          const item1 = validWords[i];
+          
+          if (item1.type === 'space') {
+              decodedMessage += " "; i++; 
+          }
+          else if (item1.type === 'comma') {
+              decodedMessage += ","; i++; 
+          }
+          else if (item1.type === 'question') {
+              decodedMessage += "?"; i++; 
+              capitalizeNext = true; 
+          }
+          else if (item1.type === 'exclamation') {
+              decodedMessage += "!"; i++; 
+              capitalizeNext = true; 
+          }
+          else if (item1.type === 'period') {
+              decodedMessage += "."; i++; 
+              capitalizeNext = true; 
+          }
+          else if (i + 1 < validWords.length && validWords[i+1].type === 'char') {
+              const item2 = validWords[i+1];
+              if (item1.char === item2.char) {
+                  let charToAdd = item1.char;
+                  
+                  if (capitalizeNext) {
+                      charToAdd = charToAdd.toUpperCase();
+                      capitalizeNext = false; 
+                  } else {
+                      charToAdd = charToAdd.toLowerCase();
+                  }
+
+                  decodedMessage += charToAdd;
+              }
+              i += 2; 
+          }
+          else {
+              i++; 
+          }
+      }
+      
+      const outputElem = document.getElementById('output-text');
+      outputElem.value = decodedMessage;
+  }
+ 
+  // --- ANIMATIE PLACEHOLDERS ---
+  function animatePlaceholders() {
+      const inputArea = document.getElementById('input-text');
+      const outputArea = document.getElementById('output-text');
+      const authArea = document.getElementById('auth-input-field');
+      
+      const baseInput = "Text";
+      const baseOutput = "Result";
+      
+      let dots = 0;
+ 
+      setInterval(() => {
+          dots = (dots + 1) % 4; // 0, 1, 2, 3
+          let dotStr = "";
+          for(let i=0; i<dots; i++) dotStr += ".";
+          
+          if(inputArea) inputArea.setAttribute('placeholder', baseInput + dotStr);
+          if(outputArea) outputArea.setAttribute('placeholder', baseOutput + dotStr);
+
+          if(authArea) {
+              let spaces = "";
+              for(let j=0; j<(3-dots); j++) spaces += " ";
+              authArea.setAttribute('placeholder', "Passcode" + dotStr + spaces);
+          }
+          
+      }, 500); 
+  }
+ 
+  window.onload = function() {
+      sanitizeDictionary();
+      animatePlaceholders();
+  };
+</script>
+ 
+</body>
+</html>
