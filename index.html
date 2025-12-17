@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BOILERPLATE 6X6 | Hollow Script | v11.7 Strict Unique</title>
+  <title>BOILERPLATE 6X6 | Hollow Script | v2.1 Equipped</title>
   <style>
       :root {
           --bg-color: #050000;
@@ -34,7 +34,7 @@
           padding: 40px;
           border: 1px solid var(--border-color);
           box-shadow: 
-              0 0 60px rgba(0, 0, 0, 1),          
+              0 0 60px rgba(0, 0, 0, 1),           
               0 0 15px rgba(255, 42, 42, 0.6),    
               0 0 40px rgba(255, 42, 42, 0.3),    
               inset 0 0 30px rgba(0, 0, 0, 0.8);  
@@ -103,7 +103,7 @@
           letter-spacing: 1px;
       }
 
-      input[type="text"], textarea {
+      input[type="text"], textarea, input[type="password"] {
           width: 100%;
           background-color: #0f0202;
           color: var(--text-color);
@@ -174,6 +174,17 @@
           box-shadow: 0 0 15px var(--accent-color);
           text-decoration: none;
       }
+      
+      .btn-secondary {
+          border-color: #555;
+          color: #777;
+          font-size: 0.7rem;
+      }
+      .btn-secondary:hover {
+          background-color: #333;
+          color: #fff;
+          box-shadow: 0 0 10px #555;
+      }
 
       .hidden { display: none !important; }
       .fade-in { animation: fadeIn 1s ease-in; }
@@ -218,6 +229,170 @@
           font-size: 1.2rem;
       }
 
+      /* --- STIJLEN VOOR MODALS --- */
+      
+      .modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.95);
+          z-index: 100;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .modal-box {
+          background: var(--secondary-color);
+          border: 1px solid var(--accent-color);
+          padding: 30px;
+          width: 85%;
+          max-width: 500px;
+          max-height: 90vh;
+          overflow-y: auto;
+          text-align: center;
+          box-shadow: 0 0 30px rgba(255, 42, 42, 0.4);
+          position: relative;
+      }
+      
+      #modal-message-area {
+          min-height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 15px;
+          font-weight: bold;
+          letter-spacing: 1px;
+      }
+
+      /* --- HISTORY SPECIFIC --- */
+
+      #history-list {
+          height: 300px;
+          overflow-y: auto;
+          border: 1px solid var(--border-color);
+          background: #0f0202;
+          padding: 0; 
+          margin-bottom: 20px;
+          font-size: 0.85rem;
+      }
+
+      .history-item {
+          display: block; 
+          border-bottom: 1px dashed var(--border-color);
+          padding: 15px; 
+          color: #999;
+          width: 100%;
+          box-sizing: border-box; 
+          cursor: pointer;
+          transition: background-color 0.2s;
+      }
+      
+      .history-item:hover {
+          background-color: #1a0808;
+      }
+      
+      .history-item:last-child { border-bottom: none; }
+      
+      .hist-header { 
+          color: var(--accent-color); 
+          font-weight: bold; 
+          display: block; 
+          font-size: 0.8rem;
+          margin-bottom: 5px;
+      }
+
+      .hist-preview {
+          font-style: italic;
+          font-size: 0.7rem;
+          color: #666;
+      }
+      
+      /* --- ADMIN SPECIFIC --- */
+
+      #admin-code-list {
+          height: auto; 
+          min-height: 0;
+          max-height: 250px; 
+          overflow-y: auto;
+          border: 1px solid var(--border-color);
+          background: #0f0202;
+          padding: 10px;
+          margin-bottom: 20px;
+          font-size: 0.85rem;
+          transition: height 0.3s ease;
+      }
+
+      .code-item {
+          border-bottom: 1px dashed var(--border-color);
+          padding: 10px 5px;
+          color: #999;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+      .code-item:last-child { border-bottom: none; }
+
+      .code-val {
+          color: var(--text-color);
+          font-weight: bold;
+          letter-spacing: 2px;
+      }
+      
+      .btn-delete {
+          background: #220000;
+          border: 1px solid #500;
+          color: #a00;
+          padding: 5px 10px;
+          font-size: 0.7rem;
+          cursor: pointer;
+          flex: 0;
+          margin-left: 10px;
+      }
+      .btn-delete:hover {
+          background: #a00;
+          color: #fff;
+      }
+
+      .sys-key-input {
+          text-align: center;
+          background: #111;
+          border: 1px solid #333;
+          margin-bottom: 5px;
+          color: var(--accent-color);
+          font-weight: bold;
+      }
+
+      /* Detail Modal Text Areas */
+      .detail-block {
+          text-align: left;
+          margin-bottom: 20px;
+          border-bottom: 1px solid #333;
+          padding-bottom: 15px;
+      }
+      .detail-label {
+          color: var(--accent-color);
+          font-size: 0.7rem;
+          font-weight: bold;
+          display: block;
+          margin-bottom: 5px;
+          text-transform: uppercase;
+      }
+      .detail-text {
+          color: var(--text-color);
+          font-size: 0.9rem;
+          word-wrap: break-word;
+          white-space: pre-wrap;
+          word-break: break-all;
+      }
+
+      /* Scrollbar styling */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #000; }
+      ::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 4px; }
+
   </style>
 </head>
 <body>
@@ -225,7 +400,7 @@
 <div class="container">
  
   <h1>BOILERPLATE 6X6</h1>
-  <div class="subtitle">Hollow Script | Encoder v11.7</div>
+  <div class="subtitle">Hollow Script | v2.1 Equipped</div>
 
   <div id="screen-auth">
       <div class="input-group" style="margin-top: 40px;">
@@ -238,12 +413,30 @@
       </div>
 
       <div id="login-message-area"></div>
+
+      <div style="text-align:center; margin-top: 50px;">
+          <button onclick="promptAdminAccess()" class="btn-logout btn-secondary">MANAGE ACCESS</button>
+      </div>
   </div>
 
   <div id="screen-main" class="hidden">
       <div class="input-group">
           <label for="input-text">INPUT DATA</label>
           <textarea id="input-text" rows="5" placeholder="Text"></textarea>
+      </div>
+    
+      <div class="input-group" style="display: flex; gap: 15px; align-items: center; justify-content: center; background: rgba(255, 42, 42, 0.05); border: 1px solid var(--border-color); padding: 15px; border-radius: 4px;">
+          <label style="margin:0; color: var(--text-color); font-size: 0.8rem;">SECURE KEY:</label>
+          
+          <input type="text" id="model-char" maxlength="1" placeholder="A" 
+                 style="width: 50px; text-align: center; text-transform: uppercase; border-color: var(--accent-color); font-weight: bold; font-size: 1.2rem;" 
+                 oninput="this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '')">
+          
+          <span style="color: var(--accent-color); font-weight: bold;">-</span>
+          
+          <input type="text" id="model-num" maxlength="1" placeholder="0" 
+                 style="width: 50px; text-align: center; border-color: var(--accent-color); font-weight: bold; font-size: 1.2rem;" 
+                 oninput="this.value = this.value.replace(/[^0-9]/g, '')">
       </div>
     
       <div class="button-row">
@@ -256,30 +449,143 @@
           <textarea id="output-text" rows="5" readonly placeholder="Result"></textarea>
       </div>
       
+      <div class="button-row">
+          <button onclick="promptHistoryAccess()" style="border-style: dashed;">ACCESS HISTORY LOG</button>
+      </div>
+
       <div style="text-align: center; margin-top: 25px;">
           <button onclick="location.reload()" class="btn-logout">LOCK SYSTEM / LOGOUT</button>
       </div>
+  </div>
+
+  <div id="modal-general-auth" class="modal-overlay hidden">
+      <div class="modal-box">
+          <h2 style="color: var(--accent-color); margin-top:0;">RESTRICTED AREA</h2>
+          <p id="modal-subtitle" style="font-size: 0.8rem; margin-bottom: 20px;">ENTER SECURITY CLEARANCE CODE</p>
+          <input type="password" id="general-pass-input" placeholder="Password" style="margin-bottom: 20px; text-align:center;">
+          <div class="button-row">
+              <button onclick="checkGeneralPass()">VERIFY</button>
+              <button onclick="closeModal('modal-general-auth')">CANCEL</button>
+          </div>
+          <div id="modal-message-area"></div>
+      </div>
+  </div>
+
+  <div id="modal-history-detail" class="modal-overlay hidden">
+      <div class="modal-box" style="text-align: left;">
+          <h2 style="color: var(--accent-color); margin-top:0; text-align:center; border-bottom: 1px solid var(--accent-color); padding-bottom:10px;">RECORD DETAILS</h2>
+          
+          <div class="detail-block">
+              <span class="detail-label">TIMESTAMP / ID</span>
+              <span class="detail-text" id="detail-time"></span>
+          </div>
+          
+          <div class="detail-block">
+              <span class="detail-label">OPERATION & KEY</span>
+              <span class="detail-text" id="detail-op"></span>
+          </div>
+
+          <div class="detail-block">
+              <span class="detail-label">INPUT DATA (FULL)</span>
+              <div class="detail-text" id="detail-input"></div>
+          </div>
+
+          <div class="detail-block" style="border-bottom: none;">
+              <span class="detail-label">OUTPUT DATA (FULL)</span>
+              <div class="detail-text" id="detail-output" style="color: #fff;"></div>
+          </div>
+
+          <div class="button-row">
+              <button onclick="closeModal('modal-history-detail')">CLOSE VIEW</button>
+          </div>
+      </div>
+  </div>
+
+  <div id="screen-history" class="hidden">
+      <h2 style="color: var(--accent-color); text-align: center;">OPERATION HISTORY</h2>
+      <div style="text-align:center; font-size: 0.7rem; margin-bottom: 10px; color:#666;">(CLICK ITEM FOR FULL DETAILS)</div>
+      <div id="history-list">
+          <div style="text-align:center; padding: 20px; color: #555;">NO RECORDS FOUND</div>
+      </div>
+      <div class="button-row">
+          <button onclick="closeHistoryScreen()">RETURN TO MAIN</button>
+          <button onclick="clearHistory()" style="border-color: #555; color: #555;">WIPE LOGS</button>
+      </div>
+  </div>
+
+  <div id="screen-admin" class="hidden">
+    <h2 style="color: var(--accent-color); text-align: center;">ACCESS CONTROL</h2>
+    
+    <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 20px; margin-bottom: 20px;">
+        <div class="subtitle" style="margin-bottom: 10px; border:none; padding:0;">SYSTEM KEYS (SINGLE VALUE)</div>
+        <label>ADMIN ACCESS KEY</label>
+        <input type="text" id="sys-admin-key" class="sys-key-input" placeholder="ADMIN CODE">
+        
+        <label>HISTORY ACCESS KEY</label>
+        <input type="text" id="sys-hist-key" class="sys-key-input" placeholder="HISTORY CODE">
+        
+        <button onclick="saveSystemKeys()" style="padding: 10px; font-size: 0.8rem; margin-top: 10px;">UPDATE SYSTEM KEYS</button>
+    </div>
+
+    <div class="subtitle" style="margin-bottom: 10px; border:none; padding:0;">USER LOGIN CODES</div>
+    
+    <div id="admin-code-list">
+        </div>
+
+    <div class="input-group" style="border-top: 1px solid var(--border-color); padding-top: 20px;">
+        <label>ADD NEW ACCESS CODE</label>
+        <div style="display:flex; gap:10px;">
+            <input type="text" id="new-code-input" placeholder="New Code" style="text-transform:uppercase;">
+            <button onclick="addNewCode()" style="flex:0.4;">ADD</button>
+        </div>
+    </div>
+
+    <div class="button-row" style="margin-top: 30px;">
+        <button onclick="closeAdminScreen()">RETURN TO LOGIN</button>
+    </div>
   </div>
 
 </div>
  
 <script>
  
-  // --- AUTHENTICATIE LOGICA ---
-  const AUTH_KEY = "CHROMA";
+  // --- CONFIGURATIE VARIABLES ---
+  
+  function getSystemKey(type) {
+      if(type === 'admin') return localStorage.getItem('hollow_sys_admin') || "NEXUS";
+      if(type === 'hist') return localStorage.getItem('hollow_sys_hist') || "SORTIS";
+  }
+
+  const DEFAULT_CODES = ["CHROMA"]; 
+  let authTarget = ""; 
+
+  // --- STARTUP LOGICA ---
+  
+  let allowedCodes = JSON.parse(localStorage.getItem('hollow_allowed_codes')) || [...DEFAULT_CODES];
 
   document.getElementById("auth-input-field").addEventListener("keypress", function(event) {
       if (event.key === "Enter") attemptLogin();
   });
 
+  document.getElementById("general-pass-input").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") checkGeneralPass();
+  });
+  
+  document.getElementById("new-code-input").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") addNewCode();
+  });
+
+  // --- LOGIN LOGICA ---
+
   function attemptLogin() {
       const inputField = document.getElementById('auth-input-field');
       const msgArea = document.getElementById('login-message-area');
+      const enteredCode = inputField.value.trim().toUpperCase(); 
       
       msgArea.innerHTML = "";
       msgArea.className = "";
 
-      if (inputField.value === AUTH_KEY) {
+      if (allowedCodes.includes(enteredCode)) {
           msgArea.innerHTML = "<span class='access-granted'>[ ACCESS GRANTED ]</span>";
           setTimeout(() => {
               document.getElementById('screen-auth').classList.add('hidden');
@@ -297,116 +603,268 @@
       }
   }
 
-  // --- CORE CRYPTO LOGICA ---
+  // --- MODAL HANDLING ---
 
-  const polybiusSquare = [
-      ['A', 'B', 'C', 'D', 'E', 'F'],
-      ['G', 'H', 'I', 'J', 'K', 'L'],
-      ['M', 'N', 'O', 'P', 'Q', 'R'],
-      ['S', 'T', 'U', 'V', 'W', 'X'], 
-      ['Y', 'Z', '0', '1', '2', '3'], 
-      ['4', '5', '6', '7', '8', '9']
-    ];
- 
-  // --- AANGEPASTE UNIEKE WOORDENLIJSTEN ---
-  // Er zijn geen dubbele woorden meer tussen de categorieën.
-  
+  function promptHistoryAccess() {
+      authTarget = "history";
+      document.getElementById('modal-subtitle').innerText = "ENTER HISTORY LOG ACCESS KEY";
+      openModal('modal-general-auth');
+  }
+
+  function promptAdminAccess() {
+      authTarget = "admin";
+      document.getElementById('modal-subtitle').innerText = "ENTER SYSTEM ADMIN KEY";
+      openModal('modal-general-auth');
+  }
+
+  function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+      
+      // Specifiek voor auth modal: clear inputs en messages
+      if(id === 'modal-general-auth') {
+          const passInput = document.getElementById('general-pass-input');
+          const msgArea = document.getElementById('modal-message-area');
+          passInput.value = "";
+          msgArea.innerHTML = ""; // Clear oude meldingen
+          passInput.focus();
+      }
+  }
+
+  function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+  }
+
+  // --- AANGEPASTE LOGICA VOOR MODAL FEEDBACK ---
+  function checkGeneralPass() {
+      const pass = document.getElementById('general-pass-input').value;
+      const input = document.getElementById('general-pass-input');
+      const msgArea = document.getElementById('modal-message-area');
+
+      const currentHistKey = getSystemKey('hist');
+      const currentAdminKey = getSystemKey('admin');
+      
+      msgArea.innerHTML = ""; // Reset
+      let success = false;
+      let targetAction = null;
+
+      // 1. Controleer of wachtwoord klopt voor het doel
+      if (authTarget === "history" && pass === currentHistKey) {
+          success = true;
+          targetAction = () => {
+              closeModal('modal-general-auth');
+              document.getElementById('screen-main').classList.add('hidden');
+              const histScreen = document.getElementById('screen-history');
+              histScreen.classList.remove('hidden');
+              histScreen.classList.add('fade-in');
+              renderHistory();
+          };
+      }
+      else if (authTarget === "admin" && pass === currentAdminKey) {
+          success = true;
+          targetAction = () => {
+              closeModal('modal-general-auth');
+              document.getElementById('screen-auth').classList.add('hidden');
+              const adminScreen = document.getElementById('screen-admin');
+              adminScreen.classList.remove('hidden');
+              adminScreen.classList.add('fade-in');
+              renderAdminScreen();
+          };
+      }
+
+      // 2. Toon feedback in modal (Zelfde principe als hoofdscherm)
+      if (success) {
+          msgArea.innerHTML = "<span class='access-granted' style='font-size:1rem; padding:5px 10px;'>[ ACCESS GRANTED ]</span>";
+          setTimeout(() => {
+              targetAction();
+              // Reset input na actie voor veiligheid
+              input.value = "";
+              msgArea.innerHTML = "";
+          }, 1000); 
+      } else {
+          msgArea.innerHTML = "<span class='access-denied' style='font-size:1rem;'>[ ACCESS DENIED ]</span>";
+          input.style.borderColor = "red";
+          input.value = "";
+          setTimeout(() => {
+               input.style.borderColor = "var(--border-color)";
+          }, 1000);
+      }
+  }
+
+  // --- ADMIN SCHERM LOGICA ---
+
+  function renderAdminScreen() {
+      document.getElementById('sys-admin-key').value = getSystemKey('admin');
+      document.getElementById('sys-hist-key').value = getSystemKey('hist');
+
+      const listDiv = document.getElementById('admin-code-list');
+      if (allowedCodes.length === 0) {
+          listDiv.innerHTML = "<div style='text-align:center;'>NO CODES ACTIVE</div>";
+          return;
+      }
+      
+      let html = "";
+      allowedCodes.forEach((code, index) => {
+          html += `
+          <div class="code-item">
+              <span class="code-val">${code}</span>
+              <button class="btn-delete" onclick="deleteCode(${index})">DELETE</button>
+          </div>
+          `;
+      });
+      listDiv.innerHTML = html;
+  }
+
+  function saveSystemKeys() {
+      const newAdmin = document.getElementById('sys-admin-key').value.trim();
+      const newHist = document.getElementById('sys-hist-key').value.trim();
+      
+      if(!newAdmin || !newHist) {
+          alert("KEYS CANNOT BE EMPTY");
+          return;
+      }
+
+      localStorage.setItem('hollow_sys_admin', newAdmin);
+      localStorage.setItem('hollow_sys_hist', newHist);
+      alert("SYSTEM KEYS UPDATED SUCCESSFULLY");
+  }
+
+  function addNewCode() {
+      const input = document.getElementById('new-code-input');
+      let val = input.value.trim().toUpperCase();
+
+      if (!val) return;
+      if (allowedCodes.includes(val)) {
+          alert("CODE ALREADY EXISTS");
+          return;
+      }
+
+      allowedCodes.push(val);
+      localStorage.setItem('hollow_allowed_codes', JSON.stringify(allowedCodes));
+      input.value = "";
+      renderAdminScreen();
+  }
+
+  function deleteCode(index) {
+      if (allowedCodes.length <= 1) {
+          alert("SYSTEM ERROR: CANNOT DELETE LAST ACCESS KEY. LOCKOUT PREVENTION.");
+          return;
+      }
+      if(confirm("REMOVE THIS ACCESS KEY?")) {
+          allowedCodes.splice(index, 1);
+          localStorage.setItem('hollow_allowed_codes', JSON.stringify(allowedCodes));
+          renderAdminScreen();
+      }
+  }
+
+  function closeAdminScreen() {
+      document.getElementById('screen-admin').classList.add('hidden');
+      document.getElementById('screen-auth').classList.remove('hidden');
+  }
+
+  // --- HISTORY LOGICA ---
+  let historyLog = [];
+  const LOCAL_STORAGE_HIST_KEY = 'hollow_script_history_v1';
+
+  function loadHistory() {
+      const saved = localStorage.getItem(LOCAL_STORAGE_HIST_KEY);
+      if (saved) {
+          historyLog = JSON.parse(saved);
+      }
+  }
+
+  function saveHistory() {
+      localStorage.setItem(LOCAL_STORAGE_HIST_KEY, JSON.stringify(historyLog));
+  }
+
+  function updateHistory(type, inputVal, outputVal, key) {
+      const now = new Date();
+      const timeString = now.getHours().toString().padStart(2,'0') + ":" + now.getMinutes().toString().padStart(2,'0') + ":" + now.getSeconds().toString().padStart(2,'0');
+      
+      const entry = {
+          time: timeString,
+          type: type,
+          key: key,
+          input: inputVal, 
+          output: outputVal 
+      };
+
+      historyLog.unshift(entry); 
+      saveHistory(); 
+      renderHistory();
+  }
+
+  function renderHistory() {
+      const listDiv = document.getElementById('history-list');
+      if(historyLog.length === 0) {
+          listDiv.innerHTML = "<div style='text-align:center; padding: 20px; color: #555;'>NO RECORDS FOUND</div>";
+          return;
+      }
+
+      let html = "";
+      historyLog.forEach((item, index) => {
+          // Preview is just first 30 chars visually
+          let inputPrev = item.input.length > 25 ? item.input.substring(0,25) + "..." : item.input;
+          
+          html += `
+          <div class="history-item" onclick="viewHistoryDetail(${index})">
+             <span class="hist-header">[${item.time}] ${item.type} (KEY: ${item.key})</span>
+             <span class="hist-preview">IN: ${inputPrev}</span>
+             <span style="float:right; color: var(--accent-color); font-size:1.2rem;">&rsaquo;</span>
+          </div>`;
+      });
+      listDiv.innerHTML = html;
+  }
+
+  function viewHistoryDetail(index) {
+      const item = historyLog[index];
+      if(!item) return;
+
+      document.getElementById('detail-time').innerText = item.time;
+      document.getElementById('detail-op').innerText = item.type + " (KEY: " + item.key + ")";
+      document.getElementById('detail-input').innerText = item.input;
+      document.getElementById('detail-output').innerText = item.output;
+
+      openModal('modal-history-detail');
+  }
+
+  function closeHistoryScreen() {
+      document.getElementById('screen-history').classList.add('hidden');
+      document.getElementById('screen-main').classList.remove('hidden');
+  }
+
+  function clearHistory() {
+      if(confirm("ARE YOU SURE? THIS CANNOT BE UNDONE.")) {
+          historyLog = [];
+          saveHistory(); 
+          renderHistory();
+      }
+  }
+
+  // --- CRYPTO LOGICA ---
+  let polybiusSquare = [];
+  const BASE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
   const specialWords = {
-      // SPATIES: Neutrale structurele woorden
-      space: [
-          "de", "het", "een", "in", "op", "bij", "van", "met", "naar", "door", "om", "uit", "over", "tot", 
-          "als", "is", "was", "zijn", "heb", "had", "ben", "kan", "wil", "moet", 
-          "er", "hier", "daar", "waar", "toen", "nog", "al", "net", "geen", "iets", "niets", 
-          "alles", "iemand", "niemand", "men", "je", "ze", "we", "jij", "hij", "zij", "wij", 
-          "jullie", "hun", "ons", "uw", "mijn", "haar"
-      ],
+      space: ["de", "het", "een", "in", "op", "bij", "van", "met", "naar", "door", "om", "uit", "over", "tot", "als", "is", "was", "zijn", "heb", "had", "ben", "kan", "wil", "moet", "er", "hier", "daar", "waar", "toen", "nog", "al", "net", "geen", "iets", "niets", "alles", "iemand", "niemand", "men", "je", "ze", "we", "jij", "hij", "zij", "wij", "jullie", "hun", "ons", "uw", "mijn", "haar"],
+      comma: ["en", "of", "maar", "want", "omdat", "zodat", "hoewel", "mits", "tenzij", "echter", "immers", "namelijk", "terwijl", "sinds", "aangezien", "indien", "nadat", "voordat", "oftewel", "trouwens", "verder", "daarnaast", "bovendien", "dus", "daarom", "vandaar", "toch", "ook"],
+      question: ["wie", "wat", "waarom", "wanneer", "hoe", "welk", "welke", "waarmee", "waardoor", "waartoe", "hoever", "hoeveel", "mag", "kun", "zouden", "misschien", "mogelijk", "wellicht", "soms"],
+      exclamation: ["ja", "nee", "zeker", "echt", "vast", "juist", "precies", "absoluut", "snel", "direct", "meteen", "nu", "wel", "kijk", "hoor", "pas", "let", "stop", "halt", "hoera", "helaas", "jammer", "super", "top", "goed", "fout", "mis", "raak"],
+      period: ["klaar", "af", "slot", "einde", "gedaan", "geweest", "voorbij", "later", "straks", "gisteren", "morgen", "vandaag", "thuis", "weg", "kwijt", "bezig", "mooi", "fijn", "stil", "dicht", "open", "compleet", "totaal", "dan", "zo"]
+  };
 
-      // KOMMA'S: Verbindingswoorden
-      comma: [
-          "en", "of", "maar", "want", "omdat", "zodat", "hoewel", "mits", "tenzij", "echter", "immers", 
-          "namelijk", "terwijl", "sinds", "aangezien", "indien", "nadat", "voordat", "oftewel", 
-          "trouwens", "verder", "daarnaast", "bovendien", "dus", "daarom", "vandaar", "toch", "ook"
-      ],
-
-      // VRAAGTEKENS: Vraagwoorden
-      question: [
-          "wie", "wat", "waarom", "wanneer", "hoe", "welk", "welke", "waarmee", 
-          "waardoor", "waartoe", "hoever", "hoeveel", "mag", "kun", "zouden", "misschien", 
-          "mogelijk", "wellicht", "soms"
-      ],
-
-      // UITROEPTEKENS: Krachttermen
-      exclamation: [
-          "ja", "nee", "zeker", "echt", "vast", "juist", "precies", "absoluut", "snel", 
-          "direct", "meteen", "nu", "wel", "kijk", "hoor", "pas", "let", "stop", "halt", "hoera", 
-          "helaas", "jammer", "super", "top", "goed", "fout", "mis", "raak"
-      ],
-
-      // PUNTEN: Afsluiters
-      period: [
-          "klaar", "af", "slot", "einde", "gedaan", "geweest", "voorbij", 
-          "later", "straks", "gisteren", "morgen", "vandaag", "thuis", "weg", "kwijt", 
-          "bezig", "mooi", "fijn", "stil", "dicht", "open", "compleet", "totaal", "dan", "zo"
-      ]
+  const dictionary = {
+      0: { 0: ["act", "bak", "cel", "dag", "bad", "bel", "bal", "bar", "arm", "bed", "bus", "bij", "bek", "alp", "ace", "bol"], 1: ["code", "data", "camp", "boos", "boom", "deel", "deur", "dans", "club", "chef", "cafe", "cool", "diep", "duur"], 2: ["bonus", "basis", "breed", "beurs", "bloem", "breuk", "brand", "beurt", "chips", "drama", "bosch", "boren"], 3: ["actief", "beleid", "camera", "credit", "balans", "bureau", "douane", "dating", "dieren", "beheer", "banen"], 4: ["analyse", "context", "contact", "brutaal", "betaald", "bedrijf", "collega", "concept", "bestand", "bloemen"], 5: ["beslissing", "belangrijk", "competitie", "definitief", "bestelling", "consultant", "belasting"] },
+      1: { 0: ["hef", "gek", "gok", "gas", "hal", "hek", "hol", "hut", "fag", "fee", "eis", "fok", "gom"], 1: ["echt", "feit", "gids", "fase", "geen", "hard", "fijn", "film", "goud", "fout", "held", "haat", "haas", "golf"], 2: ["geluk", "groep", "gevel", "grond", "groot", "hemel", "hobby", "hotel", "haven", "fiets", "fonds"], 3: ["effect", "factor", "gebied", "huidig", "fataal", "export", "geluid", "handel", "garage", "gevoel"], 4: ["gebruik", "energie", "grafiek", "herstel", "formule", "gesprek", "fabriek", "gewicht", "gehalte", "garantie"], 5: ["faciliteit", "fundamenteel", "gevaarlijk", "hypothese", "evaluatie", "generatie", "exporteur"] },
+      2: { 0: ["jas", "kar", "kat", "kop", "lip", "lij", "lam", "map", "man", "mis", "mat", "kin", "koe", "kip", "lid"], 1: ["idee", "item", "jaar", "kern", "laag", "maat", "klas", "jury", "kast", "loon", "muur", "kind", "koel", "maak"], 2: ["input", "laser", "media", "ivory", "kleur", "kaart", "kroon", "macht", "model", "motor", "markt", "leven"], 3: ["impact", "kapper", "koffer", "leider", "mantel", "metaal", "minder", "klasse", "kamers", "kosten"], 4: ["manager", "machine", "kantoor", "kapitaal", "melding", "metalen", "invloed", "limiets", "kleuren"], 5: ["initiatief", "integratie", "juridisch", "journalist", "management", "investering", "jaarlijks"] },
+      3: { 0: ["net", "nop", "nat", "nek", "nul", "pan", "pot", "pen", "pil", "put", "pop", "puf", "oor"], 1: ["nota", "open", "orde", "plan", "post", "punt", "quiz", "norm", "plek", "pers", "pand", "palm", "paal", "park"], 2: ["omzet", "order", "poort", "optie", "opzet", "plein", "prijs", "proef", "quota", "paniek", "party", "proza"], 3: ["niveau", "proces", "online", "nieuws", "nummer", "oranje", "pagina", "panter", "pakket", "premie"], 4: ["netwerk", "oorzaak", "overleg", "ontwerp", "profiel", "program", "publiek", "product", "nadelig", "normaal", "netheid", "oorlogs", "opnieuw", "periode"], 5: ["noodzaak", "onderzoek", "oplossing", "organisch", "procedure", "productie", "personeel"] },
+      4: { 0: ["ren", "rit", "rol", "rug", "sap", "set", "sok", "som", "tak", "top", "uur", "rat", "rok", "run"], 1: ["ruim", "scan", "taak", "team", "test", "tijd", "unit", "stad", "stem", "slot", "rest", "roze", "ster", "stuk", "spot", "stop", "step"], 2: ["regio", "route", "radar", "rente", "robot", "ruimte", "saldo", "scene", "schat", "spoor", "sport", "storm"], 3: ["schaal", "sector", "status", "totaal", "social", "school", "scherm", "speler", "studie", "schets"], 4: ["rapport", "respect", "realist", "subtiel", "symbool", "systeem", "reactor", "sociaal", "sanctie"], 5: ["resultaat", "strategie", "toekomst", "uitkomst", "rapportage", "technologie", "structuur"] },
+      5: { 0: ["vak", "val", "vet", "vis", "vee", "web", "wet", "wol", "wit", "zak", "zee", "zon", "zes", "weg", "wol", "wis"], 1: ["vaak", "vast", "veld", "vorm", "werk", "zaak", "zin", "week", "zorg", "voet", "wiel", "zone", "waar", "weer", "wind"], 2: ["visie", "vraag", "winst", "zeker", "zwaar", "video", "vloer", "vogel", "vraag", "water", "wagen", "zomer"], 3: ["waarde", "wereld", "winter", "zomer", "wissel", "veilig", "verder", "vinger", "westen", "wortel"], 4: ["verband", "verkeer", "verzoek", "welzijn", "voetbal", "werking", "woning", "zondag"], 5: ["variabele", "verwerking", "voortgang", "werkgever", "zekerheid", "zichtbaar", "vrijheid", "voordeel"] }
   };
 
   function getAllSpecialWords() {
       return [].concat(...Object.values(specialWords));
   }
 
-  const dictionary = {
-      0: { 
-          0: ["act", "bak", "cel", "dag", "bad", "bel", "bal", "bar", "arm", "bed", "bus", "bij", "bek", "alp", "ace", "bol"], 
-          1: ["code", "data", "camp", "boos", "boom", "deel", "deur", "dans", "club", "chef", "cafe", "cool", "diep", "duur"], 
-          2: ["bonus", "basis", "breed", "beurs", "bloem", "breuk", "brand", "beurt", "chips", "drama", "bosch", "boren"], 
-          3: ["actief", "beleid", "camera", "credit", "balans", "bureau", "douane", "dating", "dieren", "beheer", "banen"], 
-          4: ["analyse", "context", "contact", "brutaal", "betaald", "bedrijf", "collega", "concept", "bestand", "bloemen"], 
-          5: ["beslissing", "belangrijk", "competitie", "definitief", "bestelling", "consultant", "belasting"] 
-        },
-      1: { 
-          0: ["hef", "gek", "gok", "gas", "hal", "hek", "hol", "hut", "fag", "fee", "eis", "fok", "gom"], 
-          1: ["echt", "feit", "gids", "fase", "geen", "hard", "fijn", "film", "goud", "fout", "held", "haat", "haas", "golf"], 
-          2: ["geluk", "groep", "gevel", "grond", "groot", "hemel", "hobby", "hotel", "haven", "fiets", "fonds"], 
-          3: ["effect", "factor", "gebied", "huidig", "fataal", "export", "geluid", "handel", "garage", "gevoel"], 
-          4: ["gebruik", "energie", "grafiek", "herstel", "formule", "gesprek", "fabriek", "gewicht", "gehalte", "garantie"], 
-          5: ["faciliteit", "fundamenteel", "gevaarlijk", "hypothese", "evaluatie", "generatie", "exporteur"] 
-        },
-      2: { 
-          0: ["jas", "kar", "kat", "kop", "lip", "lij", "lam", "map", "man", "mis", "mat", "kin", "koe", "kip", "lid"], 
-          1: ["idee", "item", "jaar", "kern", "laag", "maat", "klas", "jury", "kast", "loon", "muur", "kind", "koel", "maak"], 
-          2: ["input", "laser", "media", "ivory", "kleur", "kaart", "kroon", "macht", "model", "motor", "markt", "leven"], 
-          3: ["impact", "kapper", "koffer", "leider", "mantel", "metaal", "minder", "klasse", "kamers", "kosten"], 
-          4: ["manager", "machine", "kantoor", "kapitaal", "melding", "metalen", "invloed", "limiets", "kleuren"], 
-          5: ["initiatief", "integratie", "juridisch", "journalist", "management", "investering", "jaarlijks"] 
-        },
-      3: { 
-          0: ["net", "nop", "nat", "nek", "nul", "pan", "pot", "pen", "pil", "put", "pop", "puf", "oor"], 
-          1: ["nota", "open", "orde", "plan", "post", "punt", "quiz", "norm", "plek", "pers", "pand", "palm", "paal", "park"], 
-          2: ["omzet", "order", "poort", "optie", "opzet", "plein", "prijs", "proef", "quota", "paniek", "party", "proza"], 
-          3: ["niveau", "proces", "online", "nieuws", "nummer", "oranje", "pagina", "panter", "pakket", "premie"], 
-          4: ["netwerk", "oorzaak", "overleg", "ontwerp", "profiel", "program", "publiek", "product", "nadelig", "normaal", "netheid", "oorlogs", "opnieuw", "periode"], 
-          5: ["noodzaak", "onderzoek", "oplossing", "organisch", "procedure", "productie", "personeel"] 
-        },
-      4: { 
-          0: ["ren", "rit", "rol", "rug", "sap", "set", "sok", "som", "tak", "top", "uur", "rat", "rok", "run"], 
-          1: ["ruim", "scan", "taak", "team", "test", "tijd", "unit", "stad", "stem", "slot", "rest", "roze", "ster", "stuk", "spot", "stop", "step"], 
-          2: ["regio", "route", "radar", "rente", "robot", "ruimte", "saldo", "scene", "schat", "spoor", "sport", "storm"], 
-          3: ["schaal", "sector", "status", "totaal", "social", "school", "scherm", "speler", "studie", "schets"], 
-          4: ["rapport", "respect", "realist", "subtiel", "symbool", "systeem", "reactor", "sociaal", "sanctie"], 
-          5: ["resultaat", "strategie", "toekomst", "uitkomst", "rapportage", "technologie", "structuur"] 
-        },
-      5: { 
-          0: ["vak", "val", "vet", "vis", "vee", "web", "wet", "wol", "wit", "zak", "zee", "zon", "zes", "weg", "wol", "wis"], 
-          1: ["vaak", "vast", "veld", "vorm", "werk", "zaak", "zin", "week", "zorg", "voet", "wiel", "zone", "waar", "weer", "wind"], 
-          2: ["visie", "vraag", "winst", "zeker", "zwaar", "video", "vloer", "vogel", "vraag", "water", "wagen", "zomer"], 
-          3: ["waarde", "wereld", "winter", "zomer", "wissel", "veilig", "verder", "vinger", "westen", "wortel"], 
-          4: ["verband", "verkeer", "verzoek", "welzijn", "voetbal", "werking", "woning", "zondag"], 
-          5: ["variabele", "verwerking", "voortgang", "werkgever", "zekerheid", "zichtbaar", "vrijheid", "voordeel"] 
-        }
-  };
- 
-  // --- HELPERS ---
-  
   function sanitizeDictionary() {
       const allSpecials = getAllSpecialWords();
       for (let r = 0; r < 6; r++) {
@@ -416,7 +874,7 @@
               }
           }
       }
-      console.log("Dictionary sanitized: special words reserved.");
+      console.log("Dictionary sanitized");
   }
 
   function getRowIndexForChar(char) {
@@ -445,8 +903,8 @@
       if (len === 5) return 2;
       if (len === 6) return 3;
       if (len === 7) return 4;
-      if (len >= 8) return 5;
-      return -1;
+      if (len === 5) return 9; 
+      return 4;
   }
  
   function getLengthForCol(colIndex) {
@@ -499,111 +957,116 @@
       
       return word;
   }
- 
+
+  function generatePolybiusGrid(keyChar, keyNum) {
+      if(!keyChar) keyChar = "A";
+      if(!keyNum) keyNum = "0";
+      
+      const charCode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(keyChar.toUpperCase());
+      const numCode = parseInt(keyNum);
+      let seed = (charCode * 10) + numCode; 
+      
+      function seededRandom() {
+          let t = seed += 0x6D2B79F5;
+          t = Math.imul(t ^ (t >>> 15), t | 1);
+          t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      }
+
+      let chars = BASE_CHARS.split('');
+      for (let i = chars.length - 1; i > 0; i--) {
+          const j = Math.floor(seededRandom() * (i + 1));
+          [chars[i], chars[j]] = [chars[j], chars[i]];
+      }
+
+      polybiusSquare = [];
+      for(let r=0; r<6; r++) {
+          let row = [];
+          for(let c=0; c<6; c++) {
+              row.push(chars[r*6 + c]);
+          }
+          polybiusSquare.push(row);
+      }
+      console.log(`Grid generated: ${keyChar}${keyNum}`);
+  }
+
   // --- ENCODING ---
   function codeerChromaLexicon() {
+      let mChar = document.getElementById('model-char').value || 'A';
+      let mNum = document.getElementById('model-num').value || '0';
+      let keyID = mChar + mNum;
+      
+      generatePolybiusGrid(mChar, mNum);
+
       const inputRaw = document.getElementById('input-text').value;
-      // VERBETERING: Vervang Enters door spaties, en behoud leestekens
       const cleanInput = inputRaw.replace(/[\r\n]+/g, ' ').replace(/[^a-zA-Z0-9 .,!?]/g, '').toUpperCase();
       let sentenceBuffer = [];
  
       for (let i = 0; i < cleanInput.length; i++) {
-          const char = cleanInput[i];
+          let char = cleanInput[i];
           
-          if (char === ' ') {
-              sentenceBuffer.push(getRandomElement(specialWords.space));
-              continue; 
-          }
-          if (char === ',') {
-              sentenceBuffer.push(getRandomElement(specialWords.comma));
-              continue; 
-          }
-          if (char === '?') {
-              sentenceBuffer.push(getRandomElement(specialWords.question));
-              continue; 
-          }
-          if (char === '!') {
-              sentenceBuffer.push(getRandomElement(specialWords.exclamation));
-              continue; 
-          }
-          if (char === '.') {
-              sentenceBuffer.push(getRandomElement(specialWords.period));
-              continue; 
-          }
+          if (char === ' ') { sentenceBuffer.push(getRandomElement(specialWords.space)); continue; }
+          if (char === ',') { sentenceBuffer.push(getRandomElement(specialWords.comma)); continue; }
+          if (char === '?') { sentenceBuffer.push(getRandomElement(specialWords.question)); continue; }
+          if (char === '!') { sentenceBuffer.push(getRandomElement(specialWords.exclamation)); continue; }
+          if (char === '.') { sentenceBuffer.push(getRandomElement(specialWords.period)); continue; }
 
           const coords = getCoords(char);
  
           if (coords) {
               const targetLen = getLengthForCol(coords.c);
+              const possibleWords = dictionary[coords.r][coords.c];
+              let codeWord = null;
 
-              for(let k=0; k<2; k++) {
-                  const possibleWords = dictionary[coords.r][coords.c];
-                  let codeWord = null;
- 
-                  if (possibleWords && possibleWords.length > 0) {
-                      let candidate = getRandomElement(possibleWords);
-                      if (coords.c === 5) {
-                          if (candidate.length >= 8) codeWord = candidate;
-                      } else {
-                          if (candidate.length === targetLen) codeWord = candidate;
-                      }
-                  }
- 
-                  if (!codeWord) {
-                      codeWord = generateFailSafeWord(coords.r, coords.c);
-                  } else {
-                      if (k === 1 && possibleWords.length > 1 && sentenceBuffer.length > 0) {
-                          let attempts = 0;
-                          while (codeWord === sentenceBuffer[sentenceBuffer.length - 1] && attempts < 10) {
-                              let nextCand = getRandomElement(possibleWords);
-                              let isValid = (coords.c === 5) ? nextCand.length >= 8 : nextCand.length === targetLen;
-                              if (isValid) codeWord = nextCand;
-                              attempts++;
-                          }
-                      }
-                  }
-                  sentenceBuffer.push(codeWord);
+              if (possibleWords && possibleWords.length > 0) {
+                  let candidate = getRandomElement(possibleWords);
+                  if (coords.c === 5 && candidate.length >= 8) codeWord = candidate;
+                  else if (coords.c !== 5 && candidate.length === targetLen) codeWord = candidate;
               }
+              if (!codeWord) codeWord = generateFailSafeWord(coords.r, coords.c);
+              sentenceBuffer.push(codeWord);
           }
       }
  
-      let finalString = sentenceBuffer.join(" ");
-      let outputText = capitalize(finalString);
+      let outputText = capitalize(sentenceBuffer.join(" "));
       
-      const outputElem = document.getElementById('output-text');
-      outputElem.value = outputText;
+      // SIGNATURE TOEVOEGEN
+      let signature = "\nKey: " + mChar + "-" + mNum;
+      let finalDisplay = outputText + signature;
+      
+      document.getElementById('output-text').value = finalDisplay;
+      updateHistory("ENCRYPT", inputRaw, finalDisplay, keyID);
   }
  
   // --- DECODING ---
   function decodeerChromaLexicon() {
+      let mChar = document.getElementById('model-char').value || 'A';
+      let mNum = document.getElementById('model-num').value || '0';
+      let keyID = mChar + mNum;
+      
+      generatePolybiusGrid(mChar, mNum);
+
       const inputRaw = document.getElementById('input-text').value;
-      const rawWords = inputRaw.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase().split(/\s+/);
+      
+      // CLEAN INPUT: VERWIJDER DE KEY SIGNATURE VOORDAT WE VERDER GAAN
+      let cleanRaw = inputRaw.replace(/Key:\s*[A-Za-z]-[0-9].*$/i, "");
+      
+      const rawWords = cleanRaw.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase().split(/\s+/);
       
       let validWords = [];
         
       rawWords.forEach(word => {
-          if (specialWords.space.includes(word)) {
-              validWords.push({ type: 'space' }); return;
-          }
-          if (specialWords.comma.includes(word)) {
-              validWords.push({ type: 'comma' }); return;
-          }
-          if (specialWords.question.includes(word)) {
-              validWords.push({ type: 'question' }); return;
-          }
-          if (specialWords.exclamation.includes(word)) {
-              validWords.push({ type: 'exclamation' }); return;
-          }
-          if (specialWords.period.includes(word)) {
-              validWords.push({ type: 'period' }); return;
-          }
+          if (specialWords.space.includes(word)) { validWords.push({ type: 'space' }); return; }
+          if (specialWords.comma.includes(word)) { validWords.push({ type: 'comma' }); return; }
+          if (specialWords.question.includes(word)) { validWords.push({ type: 'question' }); return; }
+          if (specialWords.exclamation.includes(word)) { validWords.push({ type: 'exclamation' }); return; }
+          if (specialWords.period.includes(word)) { validWords.push({ type: 'period' }); return; }
 
           if (word.length < 3) return; 
  
           const firstChar = word.charAt(0).toUpperCase();
-          const len = word.length;
           const r = getRowIndexForChar(firstChar);
-          const c = getColIndexForLength(len);
+          const c = getColIndexForLength(word.length);
  
           if (r !== -1 && c !== -1) {
               validWords.push({ type: 'char', char: polybiusSquare[r][c] });
@@ -613,85 +1076,51 @@
       let decodedMessage = "";
       let capitalizeNext = true; 
 
-      let i = 0;
-      while (i < validWords.length) { 
-          
-          const item1 = validWords[i];
-          
-          if (item1.type === 'space') {
-              decodedMessage += " "; i++; 
+      validWords.forEach(item => {
+          if (item.type === 'space') decodedMessage += " ";
+          else if (item.type === 'comma') decodedMessage += ",";
+          else if (['question','exclamation','period'].includes(item.type)) {
+              decodedMessage += (item.type === 'question' ? '?' : item.type === 'exclamation' ? '!' : '.');
+              capitalizeNext = true;
+          } else if (item.type === 'char') {
+              decodedMessage += capitalizeNext ? item.char.toUpperCase() : item.char.toLowerCase();
+              capitalizeNext = false;
           }
-          else if (item1.type === 'comma') {
-              decodedMessage += ","; i++; 
-          }
-          else if (item1.type === 'question') {
-              decodedMessage += "?"; i++; 
-              capitalizeNext = true; 
-          }
-          else if (item1.type === 'exclamation') {
-              decodedMessage += "!"; i++; 
-              capitalizeNext = true; 
-          }
-          else if (item1.type === 'period') {
-              decodedMessage += "."; i++; 
-              capitalizeNext = true; 
-          }
-          else if (i + 1 < validWords.length && validWords[i+1].type === 'char') {
-              const item2 = validWords[i+1];
-              if (item1.char === item2.char) {
-                  let charToAdd = item1.char;
-                  
-                  if (capitalizeNext) {
-                      charToAdd = charToAdd.toUpperCase();
-                      capitalizeNext = false; 
-                  } else {
-                      charToAdd = charToAdd.toLowerCase();
-                  }
-
-                  decodedMessage += charToAdd;
-              }
-              i += 2; 
-          }
-          else {
-              i++; 
-          }
-      }
+      });
       
-      const outputElem = document.getElementById('output-text');
-      outputElem.value = decodedMessage;
+      document.getElementById('output-text').value = decodedMessage;
+      updateHistory("DECRYPT", inputRaw, decodedMessage, keyID);
   }
  
-  // --- ANIMATIE PLACEHOLDERS ---
+  // --- ANIMATIE ---
   function animatePlaceholders() {
       const inputArea = document.getElementById('input-text');
       const outputArea = document.getElementById('output-text');
       const authArea = document.getElementById('auth-input-field');
-      
-      const baseInput = "Text";
-      const baseOutput = "Result";
+      const newCodeArea = document.getElementById('new-code-input');
       
       let dots = 0;
- 
       setInterval(() => {
-          dots = (dots + 1) % 4; // 0, 1, 2, 3
-          let dotStr = "";
-          for(let i=0; i<dots; i++) dotStr += ".";
+          dots = (dots + 1) % 4; 
+          let dotStr = ".".repeat(dots);
           
-          if(inputArea) inputArea.setAttribute('placeholder', baseInput + dotStr);
-          if(outputArea) outputArea.setAttribute('placeholder', baseOutput + dotStr);
-
+          if(inputArea) inputArea.setAttribute('placeholder', "Text" + dotStr);
+          if(outputArea) outputArea.setAttribute('placeholder', "Result" + dotStr);
+          
           if(authArea) {
-              let spaces = "";
-              for(let j=0; j<(3-dots); j++) spaces += " ";
-              authArea.setAttribute('placeholder', "Passcode" + dotStr + spaces);
+              authArea.setAttribute('placeholder', "Passcode" + dotStr + " ".repeat(3-dots));
           }
-          
+          if(newCodeArea) {
+              newCodeArea.setAttribute('placeholder', "New Code" + dotStr);
+          }
       }, 500); 
   }
  
   window.onload = function() {
       sanitizeDictionary();
+      generatePolybiusGrid("A", "0");
       animatePlaceholders();
+      loadHistory(); 
   };
 </script>
  
