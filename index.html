@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BOILERPLATE 6X6 | Hollow Script | v2.1 Equipped</title>
+  <title>BOILERPLATE 6X6 | Hollow Script | v2.2 Fixed</title>
   <style>
       :root {
           --bg-color: #050000;
@@ -396,11 +396,11 @@
   </style>
 </head>
 <body>
- 
+
 <div class="container">
- 
+
   <h1>BOILERPLATE 6X6</h1>
-  <div class="subtitle">Hollow Script | v2.1 Equipped</div>
+  <div class="subtitle">Hollow Script | v2.2 Fixed</div>
 
   <div id="screen-auth">
       <div class="input-group" style="margin-top: 40px;">
@@ -464,8 +464,8 @@
           <p id="modal-subtitle" style="font-size: 0.8rem; margin-bottom: 20px;">ENTER SECURITY CLEARANCE CODE</p>
           <input type="password" id="general-pass-input" placeholder="Password" style="margin-bottom: 20px; text-align:center;">
           <div class="button-row">
-              <button onclick="checkGeneralPass()">VERIFY</button>
-              <button onclick="closeModal('modal-general-auth')">CANCEL</button>
+             <button onclick="checkGeneralPass()">VERIFY</button>
+             <button onclick="closeModal('modal-general-auth')">CANCEL</button>
           </div>
           <div id="modal-message-area"></div>
       </div>
@@ -496,7 +496,7 @@
           </div>
 
           <div class="button-row">
-              <button onclick="closeModal('modal-history-detail')">CLOSE VIEW</button>
+             <button onclick="closeModal('modal-history-detail')">CLOSE VIEW</button>
           </div>
       </div>
   </div>
@@ -518,10 +518,10 @@
     
     <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 20px; margin-bottom: 20px;">
         <div class="subtitle" style="margin-bottom: 10px; border:none; padding:0;">SYSTEM KEYS (SINGLE VALUE)</div>
-        <label>ADMIN ACCESS KEY</label>
+       <label>ADMIN ACCESS KEY</label>
         <input type="text" id="sys-admin-key" class="sys-key-input" placeholder="ADMIN CODE">
         
-        <label>HISTORY ACCESS KEY</label>
+       <label>HISTORY ACCESS KEY</label>
         <input type="text" id="sys-hist-key" class="sys-key-input" placeholder="HISTORY CODE">
         
         <button onclick="saveSystemKeys()" style="padding: 10px; font-size: 0.8rem; margin-top: 10px;">UPDATE SYSTEM KEYS</button>
@@ -533,7 +533,7 @@
         </div>
 
     <div class="input-group" style="border-top: 1px solid var(--border-color); padding-top: 20px;">
-        <label>ADD NEW ACCESS CODE</label>
+       <label>ADD NEW ACCESS CODE</label>
         <div style="display:flex; gap:10px;">
             <input type="text" id="new-code-input" placeholder="New Code" style="text-transform:uppercase;">
             <button onclick="addNewCode()" style="flex:0.4;">ADD</button>
@@ -546,9 +546,9 @@
   </div>
 
 </div>
- 
+
 <script>
- 
+
   // --- CONFIGURATIE VARIABLES ---
   
   function getSystemKey(type) {
@@ -853,12 +853,54 @@
   };
 
   const dictionary = {
-      0: { 0: ["act", "bak", "cel", "dag", "bad", "bel", "bal", "bar", "arm", "bed", "bus", "bij", "bek", "alp", "ace", "bol"], 1: ["code", "data", "camp", "boos", "boom", "deel", "deur", "dans", "club", "chef", "cafe", "cool", "diep", "duur"], 2: ["bonus", "basis", "breed", "beurs", "bloem", "breuk", "brand", "beurt", "chips", "drama", "bosch", "boren"], 3: ["actief", "beleid", "camera", "credit", "balans", "bureau", "douane", "dating", "dieren", "beheer", "banen"], 4: ["analyse", "context", "contact", "brutaal", "betaald", "bedrijf", "collega", "concept", "bestand", "bloemen"], 5: ["beslissing", "belangrijk", "competitie", "definitief", "bestelling", "consultant", "belasting"] },
-      1: { 0: ["hef", "gek", "gok", "gas", "hal", "hek", "hol", "hut", "fag", "fee", "eis", "fok", "gom"], 1: ["echt", "feit", "gids", "fase", "geen", "hard", "fijn", "film", "goud", "fout", "held", "haat", "haas", "golf"], 2: ["geluk", "groep", "gevel", "grond", "groot", "hemel", "hobby", "hotel", "haven", "fiets", "fonds"], 3: ["effect", "factor", "gebied", "huidig", "fataal", "export", "geluid", "handel", "garage", "gevoel"], 4: ["gebruik", "energie", "grafiek", "herstel", "formule", "gesprek", "fabriek", "gewicht", "gehalte", "garantie"], 5: ["faciliteit", "fundamenteel", "gevaarlijk", "hypothese", "evaluatie", "generatie", "exporteur"] },
-      2: { 0: ["jas", "kar", "kat", "kop", "lip", "lij", "lam", "map", "man", "mis", "mat", "kin", "koe", "kip", "lid"], 1: ["idee", "item", "jaar", "kern", "laag", "maat", "klas", "jury", "kast", "loon", "muur", "kind", "koel", "maak"], 2: ["input", "laser", "media", "ivory", "kleur", "kaart", "kroon", "macht", "model", "motor", "markt", "leven"], 3: ["impact", "kapper", "koffer", "leider", "mantel", "metaal", "minder", "klasse", "kamers", "kosten"], 4: ["manager", "machine", "kantoor", "kapitaal", "melding", "metalen", "invloed", "limiets", "kleuren"], 5: ["initiatief", "integratie", "juridisch", "journalist", "management", "investering", "jaarlijks"] },
-      3: { 0: ["net", "nop", "nat", "nek", "nul", "pan", "pot", "pen", "pil", "put", "pop", "puf", "oor"], 1: ["nota", "open", "orde", "plan", "post", "punt", "quiz", "norm", "plek", "pers", "pand", "palm", "paal", "park"], 2: ["omzet", "order", "poort", "optie", "opzet", "plein", "prijs", "proef", "quota", "paniek", "party", "proza"], 3: ["niveau", "proces", "online", "nieuws", "nummer", "oranje", "pagina", "panter", "pakket", "premie"], 4: ["netwerk", "oorzaak", "overleg", "ontwerp", "profiel", "program", "publiek", "product", "nadelig", "normaal", "netheid", "oorlogs", "opnieuw", "periode"], 5: ["noodzaak", "onderzoek", "oplossing", "organisch", "procedure", "productie", "personeel"] },
-      4: { 0: ["ren", "rit", "rol", "rug", "sap", "set", "sok", "som", "tak", "top", "uur", "rat", "rok", "run"], 1: ["ruim", "scan", "taak", "team", "test", "tijd", "unit", "stad", "stem", "slot", "rest", "roze", "ster", "stuk", "spot", "stop", "step"], 2: ["regio", "route", "radar", "rente", "robot", "ruimte", "saldo", "scene", "schat", "spoor", "sport", "storm"], 3: ["schaal", "sector", "status", "totaal", "social", "school", "scherm", "speler", "studie", "schets"], 4: ["rapport", "respect", "realist", "subtiel", "symbool", "systeem", "reactor", "sociaal", "sanctie"], 5: ["resultaat", "strategie", "toekomst", "uitkomst", "rapportage", "technologie", "structuur"] },
-      5: { 0: ["vak", "val", "vet", "vis", "vee", "web", "wet", "wol", "wit", "zak", "zee", "zon", "zes", "weg", "wol", "wis"], 1: ["vaak", "vast", "veld", "vorm", "werk", "zaak", "zin", "week", "zorg", "voet", "wiel", "zone", "waar", "weer", "wind"], 2: ["visie", "vraag", "winst", "zeker", "zwaar", "video", "vloer", "vogel", "vraag", "water", "wagen", "zomer"], 3: ["waarde", "wereld", "winter", "zomer", "wissel", "veilig", "verder", "vinger", "westen", "wortel"], 4: ["verband", "verkeer", "verzoek", "welzijn", "voetbal", "werking", "woning", "zondag"], 5: ["variabele", "verwerking", "voortgang", "werkgever", "zekerheid", "zichtbaar", "vrijheid", "voordeel"] }
+      0: { 
+          0: ["act", "bak", "cel", "dag", "bad", "bel", "bal", "bar", "arm", "bed", "bus", "bij", "bek", "alp", "ace", "bol"], 
+          1: ["code", "data", "camp", "boos", "boom", "deel", "deur", "dans", "club", "chef", "cafe", "cool", "diep", "duur"], 
+          2: ["bonus", "basis", "breed", "beurs", "bloem", "breuk", "brand", "beurt", "chips", "drama", "bosch", "boren"], 
+          3: ["actief", "beleid", "camera", "credit", "balans", "bureau", "douane", "dating", "dieren", "beheer", "banen"], 
+          4: ["analyse", "context", "contact", "brutaal", "betaald", "bedrijf", "collega", "concept", "bestand", "bloemen"], 
+          5: ["beslissing", "belangrijk", "competitie", "definitief", "bestelling", "consultant", "belasting"] 
+      },
+      1: { 
+          0: ["hef", "gek", "gok", "gas", "hal", "hek", "hol", "hut", "fag", "fee", "eis", "fok", "gom"], 
+          1: ["echt", "feit", "gids", "fase", "geen", "hard", "fijn", "film", "goud", "fout", "held", "haat", "haas", "golf"], 
+          2: ["geluk", "groep", "gevel", "grond", "groot", "hemel", "hobby", "hotel", "haven", "fiets", "fonds"], 
+          3: ["effect", "factor", "gebied", "huidig", "fataal", "export", "geluid", "handel", "garage", "gevoel"], 
+          4: ["gebruik", "energie", "grafiek", "herstel", "formule", "gesprek", "fabriek", "gewicht", "gehalte"], 
+          5: ["faciliteit", "fundamenteel", "gevaarlijk", "hypothese", "evaluatie", "generatie", "exporteur", "garantie"] 
+      },
+      2: { 
+          0: ["jas", "kar", "kat", "kop", "lip", "lij", "lam", "map", "man", "mis", "mat", "kin", "koe", "kip", "lid"], 
+          1: ["idee", "item", "jaar", "kern", "laag", "maat", "klas", "jury", "kast", "loon", "muur", "kind", "koel", "maak"], 
+          2: ["input", "laser", "media", "ivory", "kleur", "kaart", "kroon", "macht", "model", "motor", "markt", "leven"], 
+          3: ["impact", "kapper", "koffer", "leider", "mantel", "metaal", "minder", "klasse", "kamers", "kosten"], 
+          4: ["manager", "machine", "kantoor", "melding", "metalen", "invloed", "limiets", "kleuren"], 
+          5: ["initiatief", "integratie", "juridisch", "journalist", "management", "investering", "jaarlijks", "kapitaal"] 
+      },
+      3: { 
+          0: ["net", "nop", "nat", "nek", "nul", "pan", "pot", "pen", "pil", "put", "pop", "puf", "oor"], 
+          1: ["nota", "open", "orde", "plan", "post", "punt", "quiz", "norm", "plek", "pers", "pand", "palm", "paal", "park"], 
+          2: ["omzet", "order", "poort", "optie", "opzet", "plein", "prijs", "proef", "quota", "paniek", "party", "proza"], 
+          3: ["niveau", "proces", "online", "nieuws", "nummer", "oranje", "pagina", "panter", "pakket", "premie"], 
+          4: ["netwerk", "oorzaak", "overleg", "ontwerp", "profiel", "program", "publiek", "product", "nadelig", "normaal", "netheid", "oorlogs", "opnieuw", "periode"], 
+          5: ["noodzaak", "onderzoek", "oplossing", "organisch", "procedure", "productie", "personeel"] 
+      },
+      4: { 
+          0: ["ren", "rit", "rol", "rug", "sap", "set", "sok", "som", "tak", "top", "uur", "rat", "rok", "run"], 
+          1: ["ruim", "scan", "taak", "team", "test", "tijd", "unit", "stad", "stem", "slot", "rest", "roze", "ster", "stuk", "spot", "stop", "step"], 
+          2: ["regio", "route", "radar", "rente", "robot", "ruimte", "saldo", "scene", "schat", "spoor", "sport", "storm"], 
+          3: ["schaal", "sector", "status", "totaal", "social", "school", "scherm", "speler", "studie", "schets"], 
+          4: ["rapport", "respect", "realist", "subtiel", "symbool", "systeem", "reactor", "sociaal", "sanctie"], 
+          5: ["resultaat", "strategie", "toekomst", "uitkomst", "rapportage", "technologie", "structuur"] 
+      },
+      5: { 
+          0: ["vak", "val", "vet", "vis", "vee", "web", "wet", "wol", "wit", "zak", "zee", "zon", "zes", "weg", "wis"], 
+          1: ["vaak", "vast", "veld", "vorm", "werk", "zaak", "zin", "week", "zorg", "voet", "wiel", "zone", "waar", "weer", "wind"], 
+          2: ["visie", "vraag", "winst", "zeker", "zwaar", "video", "vloer", "vogel", "water", "wagen", "zomer"], 
+          3: ["waarde", "wereld", "winter", "zomer", "wissel", "veilig", "verder", "vinger", "westen", "wortel", "woning", "zondag"], 
+          4: ["verband", "verkeer", "verzoek", "welzijn", "voetbal", "werking"], 
+          5: ["variabele", "verwerking", "voortgang", "werkgever", "zekerheid", "zichtbaar", "vrijheid", "voordeel"] 
+      }
   };
 
   function getAllSpecialWords() {
@@ -886,7 +928,7 @@
       if (/[V-Z]/.test(char)) return 5;
       return -1;
   }
- 
+
   function getStartCharsForRow(rowIndex) {
       if (rowIndex === 0) return "ABCD";
       if (rowIndex === 1) return "EFGH";
@@ -896,17 +938,18 @@
       if (rowIndex === 5) return "VWXYZ";
       return "A";
   }
- 
+
+  // --- FIXED LOGIC HERE ---
   function getColIndexForLength(len) {
       if (len === 3) return 0;
       if (len === 4) return 1;
       if (len === 5) return 2;
       if (len === 6) return 3;
       if (len === 7) return 4;
-      if (len === 5) return 9; 
-      return 4;
+      if (len >= 8) return 5; 
+      return -1;
   }
- 
+
   function getLengthForCol(colIndex) {
       if (colIndex === 0) return 3;
       if (colIndex === 1) return 4;
@@ -916,7 +959,7 @@
       if (colIndex === 5) return 9; 
       return 4;
   }
- 
+
   function getCoords(char) {
       char = char.toUpperCase();
       for (let r = 0; r < 6; r++) {
@@ -926,17 +969,17 @@
       }
       return null;
   }
- 
+
   function getRandomElement(arr) {
       if (!arr || arr.length === 0) return null;
       return arr[Math.floor(Math.random() * arr.length)];
   }
- 
+
   function capitalize(word) {
       if (!word) return "";
       return word.charAt(0).toUpperCase() + word.slice(1);
   }
- 
+
   function generateFailSafeWord(rowIndex, colIndex) {
       const allowedStartChars = getStartCharsForRow(rowIndex);
       const targetLength = getLengthForCol(colIndex);
@@ -983,7 +1026,7 @@
       for(let r=0; r<6; r++) {
           let row = [];
           for(let c=0; c<6; c++) {
-              row.push(chars[r*6 + c]);
+             row.push(chars[r*6 + c]);
           }
           polybiusSquare.push(row);
       }
@@ -1001,7 +1044,7 @@
       const inputRaw = document.getElementById('input-text').value;
       const cleanInput = inputRaw.replace(/[\r\n]+/g, ' ').replace(/[^a-zA-Z0-9 .,!?]/g, '').toUpperCase();
       let sentenceBuffer = [];
- 
+
       for (let i = 0; i < cleanInput.length; i++) {
           let char = cleanInput[i];
           
@@ -1012,7 +1055,7 @@
           if (char === '.') { sentenceBuffer.push(getRandomElement(specialWords.period)); continue; }
 
           const coords = getCoords(char);
- 
+
           if (coords) {
               const targetLen = getLengthForCol(coords.c);
               const possibleWords = dictionary[coords.r][coords.c];
@@ -1027,7 +1070,7 @@
               sentenceBuffer.push(codeWord);
           }
       }
- 
+
       let outputText = capitalize(sentenceBuffer.join(" "));
       
       // SIGNATURE TOEVOEGEN
@@ -1037,7 +1080,7 @@
       document.getElementById('output-text').value = finalDisplay;
       updateHistory("ENCRYPT", inputRaw, finalDisplay, keyID);
   }
- 
+
   // --- DECODING ---
   function decodeerChromaLexicon() {
       let mChar = document.getElementById('model-char').value || 'A';
@@ -1063,16 +1106,16 @@
           if (specialWords.period.includes(word)) { validWords.push({ type: 'period' }); return; }
 
           if (word.length < 3) return; 
- 
+
           const firstChar = word.charAt(0).toUpperCase();
           const r = getRowIndexForChar(firstChar);
           const c = getColIndexForLength(word.length);
- 
+
           if (r !== -1 && c !== -1) {
               validWords.push({ type: 'char', char: polybiusSquare[r][c] });
           }
       });
- 
+
       let decodedMessage = "";
       let capitalizeNext = true; 
 
@@ -1091,7 +1134,7 @@
       document.getElementById('output-text').value = decodedMessage;
       updateHistory("DECRYPT", inputRaw, decodedMessage, keyID);
   }
- 
+
   // --- ANIMATIE ---
   function animatePlaceholders() {
       const inputArea = document.getElementById('input-text');
@@ -1115,7 +1158,7 @@
           }
       }, 500); 
   }
- 
+
   window.onload = function() {
       sanitizeDictionary();
       generatePolybiusGrid("A", "0");
@@ -1123,6 +1166,6 @@
       loadHistory(); 
   };
 </script>
- 
+
 </body>
 </html>
